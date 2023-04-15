@@ -1,13 +1,19 @@
 import React from "react";
 import { StarIcon, ShoppingBagIcon } from "@heroicons/react/24/solid";
 
-const Item = ({ id, color, shadow, title, text, img, btn, rating, price }) => {
+const Item = ({ifExists, id, color, shadow, title, text, img, btn, rating, price }) => {
   return (
     <>
       <div
-        className={`relative bg-gradient-to-b ${color} ${shadow} grid justify-items-center items-center rounded-xl px-5 py-4 ease-in-out w-full hover:scale-105`}
+        className={`relative bg-gradient-to-b ${color} ${shadow} grid ${
+          ifExists ? "justify-items-start" : "justify-items-center"
+        } items-center rounded-xl px-5 py-4 ease-in-out w-full hover:scale-105`}
       >
-        <div className="grid justify-items-center items-center">
+        <div
+          className={`grid ${
+            ifExists ? "justify-items-start" : "justify-items-center"
+          } items-center`}
+        >
           <h1 className="text-slate-200 text-xl lg:text-lg md:text-base font-medium  filter drop-shadow">
             {title}
           </h1>
@@ -35,8 +41,18 @@ const Item = ({ id, color, shadow, title, text, img, btn, rating, price }) => {
             </button>
           </div>
         </div>
-        <div>
-          <img src={img} alt="img/item-img" className="h-36 w-64 transitions-theme hover:-rotate-12" />
+        <div
+          className={`flex items-center ${
+            ifExists ? "absolute top-5 right-1" : "justify-items-center"
+          }`}
+        >
+          <img
+            src={img}
+            alt={`img/item-img/${id}`}
+            className={`h-36 w-64 transitions-theme hover:-rotate-12 ${
+              ifExists ? "h-auto w-64 lg:w-56 md:w-48 -rotate-[35deg]" : "h-36 w-64"
+            }`}
+          />
         </div>
       </div>
     </>
