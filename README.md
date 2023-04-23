@@ -1,7 +1,7 @@
 
 # Project Title
 
-Build Frontend with ReactJs and Redux Toolkit , TailWind CSS
+Build Frontend with ReactJs and Redux Toolkit
 
 
 
@@ -22,7 +22,6 @@ Package :
   npm install @splidejs/react-splide ( slide )
   npm i --save lodash ( length paraghap )
   npm install react-hot-toast ( toast )
-  # npm i jsonwebtoken
 ```
 Run :
 ```bash
