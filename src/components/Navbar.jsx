@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import {
   MagnifyingGlassIcon,
   ShoppingBagIcon,
@@ -6,11 +7,12 @@ import {
 } from "@heroicons/react/24/outline";
 import logo from "../assets/logo.png";
 import { useDispatch } from "react-redux";
-import { setOpenCart } from "../app/CartSlice";
+import { setOpenCart, selectTotalQty } from "../app/CartSlice";
 
 const Navbar = () => {
   const [navState, setNavState] = useState(false);
   const dispatch = useDispatch();
+  const totalQty = useSelector(selectTotalQty);
   const onCartToggle = () => {
     dispatch(
       setOpenCart({
@@ -71,8 +73,8 @@ const Navbar = () => {
                     navState && "text-slate-900 trasition-all duration-300"
                   }`}
                 />
-                <div className="absolute top-4 right-0 bg-red-500 text-white text-slate-900 shadow shadow-slate-100 w-4 h-4 text-[0.65rem] leading-tight font-medium rounded-full flex items-center justify-center cursor-pointer  hover:scale-110 trasition-all duration-300">
-                  0
+                <div className="absolute top-4 right-0 bg-red-500 text-white shadow shadow-slate-100 w-4 h-4 text-[0.65rem] leading-tight font-medium rounded-full flex items-center justify-center cursor-pointer  hover:scale-110 trasition-all duration-300">
+                  {totalQty}
                 </div>
               </button>
             </li>
