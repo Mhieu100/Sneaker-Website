@@ -27,3 +27,11 @@ Run :
 ```bash
   npm run dev
 ```
+## Information
+Data : data.js
+Feature : 
+- Add to cart
+- Increase and Decrease for Product
+- Remove item from cart
+
+
